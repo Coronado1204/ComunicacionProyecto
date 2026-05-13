@@ -8,7 +8,7 @@ export const Layout = () => {
       <main
         id="main-content"
         tabIndex={-1}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 focus:outline-none"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 focus:outline-none"
         aria-label="Contenido principal"
       >
         <Outlet />
@@ -18,11 +18,11 @@ export const Layout = () => {
         role="contentinfo"
         aria-label="Pie de página"
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <p className="text-xs text-neutral-400">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="text-xs text-neutral-400 text-center">
             © 2026 Sabana Centro · Gestión territorial inteligente
           </p>
-          <p className="text-xs text-neutral-400">
+          <p className="text-xs text-neutral-400 text-center">
             Provincia Sabana Centro, Cundinamarca
           </p>
         </div>
