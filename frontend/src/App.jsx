@@ -10,6 +10,7 @@ import { Dashboard } from './pages/Dashboard.jsx'
 import { Reportes } from './pages/Reportes.jsx'
 import { Mapa } from './pages/Mapa.jsx'
 import { AdminPanel } from './pages/AdminPanel.jsx'
+import { Estadisticas } from './pages/Estadisticas.jsx'
 
 const TitleManager = () => {
   const location = useLocation()
@@ -38,6 +39,9 @@ export default function App() {
               } />
               <Route path="mapa" element={
                 <ErrorBoundary><Mapa /></ErrorBoundary>
+              } />
+              <Route path="estadisticas" element={
+                <ErrorBoundary><Estadisticas /></ErrorBoundary>
               } />
               <Route path="admin" element={
                 <PrivateRoute requiredRole="ADMINISTRADOR">

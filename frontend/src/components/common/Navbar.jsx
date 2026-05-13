@@ -1,6 +1,6 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext.jsx'
-import { MapPin, LayoutDashboard, FileText, LogOut, Shield } from 'lucide-react'
+import { MapPin, LayoutDashboard, FileText, LogOut, Shield, BarChart2 } from 'lucide-react'
 
 export const Navbar = () => {
   const { user, logout, isAdmin } = useAuth()
@@ -13,9 +13,10 @@ export const Navbar = () => {
   }
 
   const links = [
-    { to: '/dashboard', label: 'Dashboard',    icon: LayoutDashboard },
-    { to: '/reportes',  label: 'Reportes',     icon: FileText },
-    { to: '/mapa',      label: 'Mapa',         icon: MapPin },
+    { to: '/dashboard',    label: 'Dashboard',    icon: LayoutDashboard },
+    { to: '/reportes',     label: 'Reportes',     icon: FileText },
+    { to: '/mapa',         label: 'Mapa',         icon: MapPin },
+    { to: '/estadisticas', label: 'Estadísticas', icon: BarChart2 },
     ...(isAdmin ? [{ to: '/admin', label: 'Administrador', icon: Shield }] : []),
   ]
 
