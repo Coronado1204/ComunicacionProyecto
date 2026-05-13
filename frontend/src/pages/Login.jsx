@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
-import { MapPin } from 'lucide-react'
+import { MapPin, ArrowRight } from 'lucide-react'
 
 export const Login = () => {
   const { login, loading } = useAuth()
@@ -18,34 +18,60 @@ export const Login = () => {
       await login(form.email, form.password)
       navigate('/dashboard')
     } catch (err) {
-      setError(err.response?.data?.message || 'Error al iniciar sesión')
+      setError(err.response?.data?.message || 'Credenciales incorrectas')
     }
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-white flex items-center justify-center px-4">
-      <div className="w-full max-w-md">
-
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-14 h-14 bg-primary-400 rounded-2xl mb-4">
-            <MapPin className="text-white" size={28} />
+    <div className="min-h-screen bg-neutral-50 flex">
+      {/* Panel izquierdo */}
+      <div className="hidden lg:flex lg:w-1/2 bg-neutral-900 flex-col justify-between p-12">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+            <MapPin size={16} className="text-neutral-900" />
           </div>
-          <h1 className="text-2xl font-semibold text-gray-900">Sabana Centro</h1>
-          <p className="text-gray-500 text-sm mt-1">Gestión territorial inteligente</p>
+          <span className="text-white font-semibold">Sabana Centro</span>
         </div>
+        <div>
+          <h1 className="text-4xl font-semibold text-white leading-tight mb-4">
+            Gestión territorial<br />inteligente
+          </h1>
+          <p className="text-neutral-400 text-lg leading-relaxed">
+            Plataforma para reportar y gestionar problemáticas en los municipios de la provincia Sabana Centro.
+          </p>
+        </div>
+        <div className="flex gap-6">
+          {['Cajicá','Chía','Zipaquirá','Tocancipá'].map(m => (
+            <span key={m} className="text-neutral-500 text-sm">{m}</span>
+          ))}
+        </div>
+      </div>
 
-        <div className="card">
-          <h2 className="text-lg font-medium text-gray-900 mb-6">Iniciar sesión</h2>
+      {/* Panel derecho */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
+        <div className="w-full max-w-sm">
+          <div className="mb-8">
+            <div className="lg:hidden flex items-center gap-2 mb-8">
+              <div className="w-8 h-8 bg-neutral-900 rounded-lg flex items-center justify-center">
+                <MapPin size={16} className="text-white" />
+              </div>
+              <span className="font-semibold text-neutral-900">Sabana Centro</span>
+            </div>
+            <h2 className="text-2xl font-semibold text-neutral-900">Bienvenido</h2>
+            <p className="text-neutral-500 text-sm mt-1">Ingresa a tu cuenta para continuar</p>
+          </div>
 
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3 rounded-lg mb-4">
+            <div className="bg-red-50 border border-red-100 text-red-600 text-sm px-4 py-3 rounded-xl mb-6">
               {error}
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Correo electrónico</label>
+              <label className="block text-sm font-medium text-neutral-700 mb-1.5">
+                Correo electrónico
+              </label>
               <input
                 type="email"
                 name="email"
@@ -57,7 +83,9 @@ export const Login = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
+              <label className="block text-sm font-medium text-neutral-700 mb-1.5">
+                Contraseña
+              </label>
               <input
                 type="password"
                 name="password"
@@ -68,14 +96,20 @@ export const Login = () => {
                 required
               />
             </div>
-            <button type="submit" disabled={loading} className="btn-primary w-full mt-2">
-              {loading ? 'Ingresando...' : 'Ingresar'}
+            <button
+              type="submit"
+              disabled={loading}
+              className="btn-primary w-full justify-center mt-2"
+            >
+              {loading ? 'Ingresando...' : (
+                <>Ingresar <ArrowRight size={15} /></>
+              )}
             </button>
           </form>
 
-          <p className="text-center text-sm text-gray-500 mt-4">
+          <p className="text-center text-sm text-neutral-500 mt-6">
             ¿No tienes cuenta?{' '}
-            <Link to="/register" className="text-primary-600 hover:underline font-medium">
+            <Link to="/register" className="text-neutral-900 font-medium hover:underline">
               Regístrate
             </Link>
           </p>

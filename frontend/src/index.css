@@ -4,25 +4,42 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
   body {
-    @apply bg-gray-50 text-gray-900 antialiased;
+    @apply bg-neutral-50 text-neutral-900 font-sans;
+  }
+  h1, h2, h3, h4 {
+    @apply font-semibold tracking-tight;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-primary-400 hover:bg-primary-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply bg-neutral-900 hover:bg-neutral-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-150 disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center gap-2;
   }
   .btn-secondary {
-    @apply bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium px-4 py-2 rounded-lg transition-colors duration-200;
+    @apply bg-white border border-neutral-200 hover:bg-neutral-50 text-neutral-700 text-sm font-medium px-4 py-2 rounded-lg transition-all duration-150 inline-flex items-center gap-2;
+  }
+  .btn-danger {
+    @apply bg-red-50 hover:bg-red-100 text-red-600 text-sm font-medium px-4 py-2 rounded-lg transition-all duration-150 inline-flex items-center gap-2;
   }
   .input {
-    @apply w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent;
+    @apply w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm bg-white text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all duration-150;
   }
-  .card {
-    @apply bg-white rounded-xl border border-gray-200 shadow-sm p-6;
-  }
+ .card {
+  @apply bg-white rounded-2xl border border-neutral-100 p-6;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+}
   .badge {
     @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900;
+  }
+  .sidebar-link.active {
+    @apply bg-neutral-900 text-white hover:bg-neutral-800;
   }
 }

@@ -7,6 +7,7 @@ import { config } from './config/env.js'
 import authRoutes from './routes/auth.routes.js'
 import reportsRoutes from './routes/reports.routes.js'
 import municipiosRoutes from './routes/municipios.routes.js'
+import usersRoutes from './routes/users.routes.js'
 
 const app = express()
 
@@ -32,6 +33,7 @@ app.get('/health', (req, res) => {
 app.use('/api/auth', authRoutes)
 app.use('/api/reports', reportsRoutes)
 app.use('/api/municipios', municipiosRoutes)
+app.use('/api/users', usersRoutes)
 
 // Ruta no encontrada
 app.use((req, res) => {

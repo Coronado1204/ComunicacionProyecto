@@ -7,6 +7,7 @@ import { Register } from './pages/Register.jsx'
 import { Dashboard } from './pages/Dashboard.jsx'
 import { Reportes } from './pages/Reportes.jsx'
 import { Mapa } from './pages/Mapa.jsx'
+import { AdminPanel } from './pages/AdminPanel.jsx'
 
 export default function App() {
   return (
@@ -23,6 +24,11 @@ export default function App() {
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="reportes" element={<Reportes />} />
             <Route path="mapa" element={<Mapa />} />
+            <Route path="admin" element={
+              <PrivateRoute requiredRole="ADMINISTRADOR">
+                <AdminPanel />
+              </PrivateRoute>
+            } />
           </Route>
 
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
