@@ -43,3 +43,49 @@
     @apply bg-neutral-900 text-white hover:bg-neutral-800;
   }
 }
+
+/* Accesibilidad — focus visible para todos los elementos interactivos */
+@layer utilities {
+  :focus-visible {
+    outline: 2px solid #171717;
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  /* Ocultar visualmente pero mantener para screen readers */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Skip to content visible al recibir foco */
+  .skip-link:focus {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 9999;
+    padding: 0.5rem 1rem;
+    background: #171717;
+    color: white;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  /* Reducir movimiento si el usuario lo prefiere */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
