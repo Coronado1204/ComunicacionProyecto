@@ -6,6 +6,8 @@ import { Plus, MapPin, X, FileText, Search, Filter } from 'lucide-react'
 import toast from 'react-hot-toast'
 import { SkeletonTable } from '../components/common/SkeletonCard.jsx'
 import { EmptyState } from '../components/common/EmptyState.jsx'
+import { exportToPDF, exportToExcel } from '../utils/exportUtils.js'
+import { Download } from 'lucide-react'
 
 const CATEGORIAS = ['SALUD', 'MOVILIDAD', 'VIVIENDA', 'SERVICIOS_PUBLICOS', 'SEGURIDAD', 'OTRO']
 const MUNICIPIOS = ['Cajicá','Chía','Cogua','Cota','Gachancipá','Nemocón','Sopó','Tabio','Tenjo','Tocancipá','Zipaquirá']
@@ -124,15 +126,35 @@ export const Reportes = () => {
               {data?.total || 0} reportes registrados
             </p>
           </div>
-          <button
-            onClick={() => setShowForm(true)}
-            className="btn-primary"
-            aria-label="Crear nuevo reporte"
-            aria-haspopup="dialog"
-          >
-            <Plus size={15} aria-hidden="true" />
-            Nuevo reporte
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => exportToExcel(reports, filters)}
+              disabled={reports.length === 0}
+              aria-label="Exportar reportes a Excel"
+              className="btn-secondary"
+            >
+              <Download size={15} aria-hidden="true" />
+              Excel
+            </button>
+            <button
+              onClick={() => exportToPDF(reports, filters)}
+              disabled={reports.length === 0}
+              aria-label="Exportar reportes a PDF"
+              className="btn-secondary"
+            >
+              <Download size={15} aria-hidden="true" />
+              PDF
+            </button>
+            <button
+              onClick={() => setShowForm(true)}
+              className="btn-primary"
+              aria-label="Crear nuevo reporte"
+              aria-haspopup="dialog"
+            >
+              <Plus size={15} aria-hidden="true" />
+              Nuevo reporte
+            </button>
+          </div>
         </div>
       </section>
 
