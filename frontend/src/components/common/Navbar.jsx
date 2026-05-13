@@ -1,6 +1,6 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext.jsx'
-import { MapPin, LayoutDashboard, FileText, LogOut, Shield, BarChart2 } from 'lucide-react'
+import { MapPin, LayoutDashboard, FileText, LogOut, Shield, BarChart2, UserCircle } from 'lucide-react'
 
 export const Navbar = () => {
   const { user, logout, isAdmin } = useAuth()
@@ -79,9 +79,15 @@ export const Navbar = () => {
             </ul>
 
             <div className="flex items-center gap-3 shrink-0">
-              <div
-                className="flex items-center gap-2"
-                aria-label={'Usuario ' + user?.name + ', rol ' + user?.role}
+              <Link
+                to="/perfil"
+                className={
+                  'flex items-center gap-2 px-2 py-1 rounded-lg transition-all duration-150 ' +
+                  'hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 ' +
+                  'focus-visible:ring-neutral-900 focus-visible:ring-offset-2 ' +
+                  (location.pathname === '/perfil' ? 'bg-neutral-100' : '')
+                }
+                aria-label="Ver mi perfil"
               >
                 <div
                   className="w-7 h-7 bg-neutral-100 rounded-full flex items-center justify-center"
@@ -99,7 +105,7 @@ export const Navbar = () => {
                     {user?.role}
                   </p>
                 </div>
-              </div>
+              </Link>
 
               <button
                 onClick={handleLogout}

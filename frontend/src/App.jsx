@@ -12,6 +12,7 @@ import { Mapa } from './pages/Mapa.jsx'
 import { AdminPanel } from './pages/AdminPanel.jsx'
 import { Estadisticas } from './pages/Estadisticas.jsx'
 import { ReporteDetalle } from './pages/ReporteDetalle.jsx'
+import { Perfil } from './pages/Perfil.jsx'
 
 const TitleManager = () => {
   const location = useLocation()
@@ -46,6 +47,9 @@ export default function App() {
               } />
               <Route path="estadisticas" element={
                 <ErrorBoundary><Estadisticas /></ErrorBoundary>
+              } />
+              <Route path="perfil" element={
+                <ErrorBoundary><Perfil /></ErrorBoundary>
               } />
               <Route path="admin" element={
                 <PrivateRoute requiredRole="ADMINISTRADOR">

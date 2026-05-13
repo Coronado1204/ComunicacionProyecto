@@ -8,6 +8,7 @@ const TITLES = {
   '/admin':        'Administrador',
   '/login':        'Iniciar sesión',
   '/register':     'Registro',
+  '/perfil': 'Mi perfil',
 }
 
 export const PageTitle = ({ path }) => {
