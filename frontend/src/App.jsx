@@ -11,6 +11,7 @@ import { Reportes } from './pages/Reportes.jsx'
 import { Mapa } from './pages/Mapa.jsx'
 import { AdminPanel } from './pages/AdminPanel.jsx'
 import { Estadisticas } from './pages/Estadisticas.jsx'
+import { ReporteDetalle } from './pages/ReporteDetalle.jsx'
 
 const TitleManager = () => {
   const location = useLocation()
@@ -36,6 +37,9 @@ export default function App() {
               } />
               <Route path="reportes" element={
                 <ErrorBoundary><Reportes /></ErrorBoundary>
+              } />
+              <Route path="reportes/:id" element={
+                <ErrorBoundary><ReporteDetalle /></ErrorBoundary>
               } />
               <Route path="mapa" element={
                 <ErrorBoundary><Mapa /></ErrorBoundary>

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { reportService } from '../services/reportService.js'
 import { useAuth } from '../context/AuthContext.jsx'
@@ -30,6 +31,7 @@ const geocodificar = async (direccion, municipio) => {
 }
 
 export const Reportes = () => {
+  const navigate = useNavigate()
   const { isOperador } = useAuth()
   const qc = useQueryClient()
   const [showForm, setShowForm] = useState(false)
@@ -398,7 +400,15 @@ export const Reportes = () => {
         <section aria-label="Lista de reportes">
           <ol className="space-y-3" aria-label={reports.length + ' reportes encontrados'}>
             {reports.map(r => (
-              <li key={r.id} className="card hover:border-neutral-200 transition-all duration-150">
+              <li
+                key={r.id}
+                className="card hover:border-neutral-200 transition-all duration-150 cursor-pointer"
+                onClick={() => navigate('/reportes/' + r.id)}
+                role="button"
+                tabIndex={0}
+                aria-label={'Ver detalle de ' + r.title}
+                onKeyDown={e => e.key === 'Enter' && navigate('/reportes/' + r.id)}
+              >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex gap-4 flex-1 min-w-0">
                     <div
