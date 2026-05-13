@@ -30,3 +30,7 @@ dist-ssr
 
 # Prisma migrations (opcional)
 backend/prisma/migrations/
+
+backend/.env
+frontend/.env
+backend/.env.example
