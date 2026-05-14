@@ -10,6 +10,7 @@ import reportsRoutes from './routes/reports.routes.js'
 import municipiosRoutes from './routes/municipios.routes.js'
 import usersRoutes from './routes/users.routes.js'
 import commentsRoutes from './routes/comments.routes.js'
+import chatbotRoutes from './routes/chatbot.routes.js'
 
 const app = express()
 
@@ -45,6 +46,7 @@ app.use('/api/reports',    reportsRoutes)
 app.use('/api/municipios', municipiosRoutes)
 app.use('/api/users',      usersRoutes)
 app.use('/api/comments',   commentsRoutes)
+app.use('/api/chatbot',    chatbotRoutes)
 
 // 404
 app.use((req, res) => {

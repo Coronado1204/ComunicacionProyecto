@@ -13,8 +13,8 @@ const TITLES = {
 
 export const PageTitle = ({ path }) => {
   useEffect(() => {
-    const title = TITLES[path] || 'Sabana Centro'
-    document.title = title + ' — Sabana Centro'
+    const title = TITLES[path] || 'TerritoriApp'
+    document.title = title + ' — TerritoriApp'
   }, [path])
   return null
 }

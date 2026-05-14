@@ -53,13 +53,13 @@ export const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex justify-between items-center h-16">
 
-            <Link to="/dashboard" aria-label="Sabana Centro, ir al inicio"
+            <Link to="/dashboard" aria-label="TerritoriApp, ir al inicio"
               className="flex items-center gap-2.5 shrink-0"
               onClick={() => setMenuOpen(false)}>
               <Logo />
               <div>
                 <span className="font-bold text-sm block leading-tight" style={{ color: 'var(--text-primary)' }}>
-                  Sabana Centro
+                  TerritoriApp
                 </span>
                 <span className="text-xs font-medium text-brand-600 block leading-tight">
                   Gestión Territorial

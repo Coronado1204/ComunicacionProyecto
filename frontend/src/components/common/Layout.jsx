@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import { Navbar } from './Navbar.jsx'
+import { Chatbot } from './Chatbot.jsx'
 
 export const Layout = () => {
   return (
@@ -20,14 +21,15 @@ export const Layout = () => {
         aria-label="Pie de página"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-xs text-muted text-center" style={{ color: 'var(--text-muted)' }}>
+          <p className="text-xs text-center" style={{ color: 'var(--text-muted)' }}>
             © 2026 Sabana Centro · Gestión territorial inteligente
           </p>
-          <p className="text-xs text-muted text-center" style={{ color: 'var(--text-muted)' }}>
+          <p className="text-xs text-center" style={{ color: 'var(--text-muted)' }}>
             Provincia Sabana Centro, Cundinamarca
           </p>
         </div>
       </footer>
+      <Chatbot />
     </div>
   )
 }

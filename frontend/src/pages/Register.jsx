@@ -57,7 +57,7 @@ export const Register = () => {
         <div className="relative flex items-center gap-3">
           <Logo />
           <div>
-            <span className="text-white font-bold text-lg block leading-tight">Sabana Centro</span>
+            <span className="text-white font-bold text-lg block leading-tight">TerritoriApp</span>
             <span className="text-blue-300 text-xs font-medium">Gestión Territorial Inteligente</span>
           </div>
         </div>
@@ -97,7 +97,7 @@ export const Register = () => {
             <div className="lg:hidden flex items-center gap-2.5 mb-8">
               <Logo />
               <div>
-                <span className="font-bold text-neutral-900 block leading-tight">Sabana Centro</span>
+                <span className="font-bold text-neutral-900 block leading-tight">TerritoriApp</span>
                 <span className="text-xs text-brand-600 font-medium">Gestión Territorial</span>
               </div>
             </div>
