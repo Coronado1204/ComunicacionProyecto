@@ -3,7 +3,7 @@ import { Navbar } from './Navbar.jsx'
 
 export const Layout = () => {
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="page-bg">
       <Navbar />
       <main
         id="main-content"
@@ -14,15 +14,16 @@ export const Layout = () => {
         <Outlet />
       </main>
       <footer
-        className="border-t border-neutral-100 mt-16 py-6"
+        className="border-t mt-16 py-6"
+        style={{ borderColor: 'var(--border-color)' }}
         role="contentinfo"
         aria-label="Pie de página"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-xs text-neutral-400 text-center">
+          <p className="text-xs text-muted text-center" style={{ color: 'var(--text-muted)' }}>
             © 2026 Sabana Centro · Gestión territorial inteligente
           </p>
-          <p className="text-xs text-neutral-400 text-center">
+          <p className="text-xs text-muted text-center" style={{ color: 'var(--text-muted)' }}>
             Provincia Sabana Centro, Cundinamarca
           </p>
         </div>
