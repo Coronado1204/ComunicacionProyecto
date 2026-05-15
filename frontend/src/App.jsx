@@ -13,6 +13,7 @@ import { AdminPanel } from './pages/AdminPanel.jsx'
 import { Estadisticas } from './pages/Estadisticas.jsx'
 import { ReporteDetalle } from './pages/ReporteDetalle.jsx'
 import { Perfil } from './pages/Perfil.jsx'
+import { VerificarEmail } from './pages/VerificarEmail.jsx'
 
 const TitleManager = () => {
   const location = useLocation()
@@ -28,6 +29,7 @@ export default function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/verificar-email" element={<VerificarEmail />} />
 
             <Route path="/" element={
               <PrivateRoute><Layout /></PrivateRoute>

@@ -7,7 +7,9 @@ import { registerValidation, loginValidation, validate } from '../middlewares/va
 const router = Router()
 
 router.post('/register', authLimiter, registerValidation, validate, authController.register)
-router.post('/login',    authLimiter, loginValidation,    validate, authController.login)
-router.get('/me',        authMiddleware, authController.me)
+router.post('/verify-email', authLimiter, authController.verifyEmail)
+router.post('/resend-code', authLimiter, authController.resendCode)
+router.post('/login', authLimiter, loginValidation, validate, authController.login)
+router.get('/me', authMiddleware, authController.me)
 
 export default router

@@ -8,17 +8,20 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  name      String
-  email     String   @unique
-  password  String
-  role      Role     @default(CIUDADANO)
-  municipio String?
-  active    Boolean  @default(true)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  reports   Report[]
-  comments  Comment[]
+  id               String    @id @default(uuid())
+  name             String
+  email            String    @unique
+  password         String
+  role             Role      @default(CIUDADANO)
+  municipio        String?
+  active           Boolean   @default(true)
+  verified         Boolean   @default(false)
+  verificationCode String?
+  verificationExp  DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  reports          Report[]
+  comments         Comment[]
 
   @@map("users")
 }

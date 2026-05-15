@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 import { authService } from '../services/authService.js'
+import api from '../services/api.js'
 
 const AuthContext = createContext(null)
 
@@ -21,9 +22,8 @@ export const AuthProvider = ({ children }) => {
   const register = async (userData) => {
     setLoading(true)
     try {
-      const data = await authService.register(userData)
-      setUser(data.user)
-      return data
+      const { data } = await api.post('/auth/register', userData)
+      return data.data
     } finally {
       setLoading(false)
     }

@@ -38,7 +38,12 @@ export const Login = () => {
       await login(form.email, form.password)
       navigate('/dashboard')
     } catch (err) {
-      setError(err.response?.data?.message || 'Credenciales incorrectas')
+      const msg = err.response?.data?.message || 'Credenciales incorrectas'
+      if (err.response?.status === 403) {
+        navigate('/verificar-email', { state: { email: form.email } })
+        return
+      }
+      setError(msg)
     }
   }
 

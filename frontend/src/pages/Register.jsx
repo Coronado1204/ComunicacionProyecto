@@ -41,7 +41,7 @@ export const Register = () => {
     setError('')
     try {
       await register(form)
-      navigate('/dashboard')
+      navigate('/verificar-email', { state: { email: form.email } })
     } catch (err) {
       setError(err.response?.data?.message || 'Error al registrarse')
     }
